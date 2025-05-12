@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/digital-a
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
-app.use('/api/assets', require('./routes/assets'));
+app.use('/api/assets', require('./routes/assetRoutes'));
 app.use('/api/users', require('./routes/users'));
 const fileRoutes = require('./routes/fileRoutes');
 app.use('/api/files', fileRoutes);
