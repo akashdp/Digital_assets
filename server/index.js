@@ -36,6 +36,21 @@ app.use('/api/users', require('./routes/users'));
 const fileRoutes = require('./routes/fileRoutes');
 app.use('/api/files', fileRoutes);
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Welcome to Digital Assets Management API',
+    status: 'Active',
+    version: '1.0.0',
+    endpoints: {
+      auth: '/api/auth',
+      assets: '/api/assets',
+      users: '/api/users',
+      files: '/api/files'
+    }
+  });
+});
+
 // List all registered routes
 console.log('Registered Routes:');
 app._router.stack.forEach(function(r){
