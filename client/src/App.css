@@ -1,0 +1,254 @@
+/* Reset default styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* File drag and drop zone */
+.dropzone {
+  border: 2px dashed #cccccc;
+  border-radius: 8px;
+  padding: 20px;
+  text-align: center;
+  background: #fafafa;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dropzone:hover {
+  border-color: #2196f3;
+  background: #f0f7ff;
+}
+
+.dropzone.active {
+  border-color: #4caf50;
+  background: #e8f5e9;
+}
+
+/* File grid layout */
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+}
+
+/* File card animations */
+.file-card {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.file-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Loading spinner animation */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.loading-spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Tag styles */
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 16px;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  background-color: rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive layout adjustments */
+@media (max-width: 1200px) {
+  .file-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 12px;
+    padding: 12px;
+  }
+  
+  .main-content {
+    padding: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .file-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .main-content {
+    padding: 12px;
+  }
+
+  .search-bar {
+    max-width: 100%;
+    margin: 8px 0;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .dropzone {
+    padding: 15px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .file-grid {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 8px;
+    padding: 8px;
+  }
+
+  .main-content {
+    padding: 8px;
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 3px 6px;
+  }
+
+  button {
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+  }
+
+  .dropzone {
+    padding: 10px;
+    margin: 8px;
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) {
+  .file-card:hover {
+    transform: none;
+  }
+
+  .file-card:active {
+    transform: scale(0.98);
+  }
+
+  button:active {
+    transform: scale(0.98);
+  }
+}
+
+/* Mobile navigation improvements */
+@media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #fff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+
+  .nav-menu-item {
+    padding: 12px;
+    text-align: center;
+  }
+}
+
+/* Improved mobile form elements */
+@media (max-width: 480px) {
+  input, select, textarea {
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    padding: 8px;
+  }
+
+  .form-group {
+    margin-bottom: 12px;
+  }
+}
+
+/* Toast notifications for mobile */
+@media (max-width: 768px) {
+  .toast {
+    width: 90%;
+    max-width: none;
+    margin: 8px auto;
+    font-size: 0.9em;
+  }
+}
+
+/* Toast notification styles */
+.toast-success {
+  background-color: #4caf50 !important;
+}
+
+.toast-error {
+  background-color: #f44336 !important;
+}
+
+/* Main content area */
+.main-content {
+  flex-grow: 1;
+  padding: 24px;
+  min-height: calc(100vh - 64px);
+}
+
+/* Folder tree styles */
+.folder-tree-item {
+  transition: background-color 0.2s ease;
+}
+
+.folder-tree-item:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+}
+
+/* Search bar styles */
+.search-bar {
+  transition: width 0.3s ease;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Profile dropdown animation */
+.profile-menu {
+  transform-origin: top right;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
